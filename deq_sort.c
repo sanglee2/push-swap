@@ -6,7 +6,7 @@
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 03:55:00 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/20 07:47:08 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/20 17:24:57 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,8 @@ void    sort(t_deq *deq_a, t_deq *deq_b)
         while(deq_b->b_top)
             get_rot_count(deq_a, deq_b);
     }
-        //greedy(deq_a, deq_b);        
+    //greedy(deq_a, deq_b);        
 }
-
-
-
-
-
 
 
 

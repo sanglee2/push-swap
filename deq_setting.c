@@ -6,7 +6,7 @@
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 21:50:51 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/20 08:22:46 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/20 14:21:57 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void pre_setting_deque(t_deq *deq_a, t_deq *deq_b)
 	while (deq_a->a_size > 5)
 	{
 		pb(deq_a, deq_b);
-		if (deq_b->b_top->index <= pivot)
+		if (deq_b->b_top->index < pivot)
 			rb(deq_b);
 		//deq_a->a_size--;
 	}

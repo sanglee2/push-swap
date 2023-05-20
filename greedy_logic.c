@@ -6,7 +6,7 @@
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 18:42:13 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/20 07:35:06 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/20 19:40:19 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void act_sort(t_deq *deq_a, t_deq *deq_b, int a_rot, int b_rot)
 		iterate_rra(deq_a, a_rot);
 	iterate_ra(deq_a, a_rot);
 	if (b_rot < 0)
-		iterate_rra(deq_b, b_rot);
+		iterate_rrb(deq_b, b_rot);
 	iterate_rb(deq_b, b_rot);
 	pa(deq_a, deq_b);
 }

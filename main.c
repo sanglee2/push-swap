@@ -6,7 +6,7 @@
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:18:25 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/20 10:19:02 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/20 20:06:49 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,32 +60,33 @@ int main()
     init_deq(&deq_a);
     init_deq(&deq_b);
 
-    node = init_node(20);
-    push_bot_a(&deq_a, node);
-
-    node = init_node(0);
-    push_bot_a(&deq_a, node);
-
-    node = init_node(50);
-    push_bot_a(&deq_a, node);
-
-    node = init_node(40);
-    push_bot_a(&deq_a, node);
-
-    node = init_node(10);
+    node = init_node(2);
     push_bot_a(&deq_a, node);
 
     node = init_node(30);
     push_bot_a(&deq_a, node);
 
+    node = init_node(50000);
+    push_bot_a(&deq_a, node);
+
+    node = init_node(-42304);
+    push_bot_a(&deq_a, node);
+    
+
+    node = init_node(-710);
+    push_bot_a(&deq_a, node);
+
+    node = init_node(-320);
+    push_bot_a(&deq_a, node);
+
     node = init_node(11);
     push_bot_a(&deq_a, node);
 
-    node = init_node(31);
+    node = init_node(-31);
     push_bot_a(&deq_a, node);
 
     // 이 경우 뭐지? -- 에러, 에러를 잘, 잘 찾을 것
-    node = init_node(-41);
+    node = init_node(41);
     push_bot_a(&deq_a, node);
 
     node = init_node(-1);
@@ -140,6 +141,48 @@ b_top data : 2
     }
 
     content_trans_idx(&deq_a);
+
+/*
+a_top data : 8
+a_top data : 9
+a_top data : 11
+a_top data : 0
+a_top data : 10
+a_top data : 1
+a_top data : 5
+a_top data : 3
+a_top data : 2
+a_top data : 7
+a_top data : 4
+a_top data : 6
+*/
+
+/*b_top data : 10
+b_top data : 11
+b_top data : 9
+b_top data : 8
+b_top data : 0
+b_top data : 1
+b_top data : 5
+*/
+/*
+a_top data : 3
+a_top data : 4
+a_top data : 5
+a_top data : 6
+a_top data : 10
+(lldb) p deq_print(deq_b)
+b_top data : 8
+b_top data : 11
+b_top data : 9
+b_top data : 7
+b_top data : 0
+b_top data : 1
+b_top data : 2
+*/
+
+
+
 
     sort(&deq_a, &deq_b);
 
