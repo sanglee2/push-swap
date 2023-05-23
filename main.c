@@ -6,7 +6,7 @@
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:18:25 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/23 22:02:59 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/23 22:11:06 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,28 @@ int main(int ac, char **av)
 		ft_free_deq_a(deq_a);
 		ft_error();
 	}
+
+    deq_a->a_size = get_deq_a_size(deq_a);
+    deq_b->b_size = get_deq_b_size(deq_b);
+
+    content_trans_idx(deq_a);
+
+
+    sort(deq_a, deq_b);
+
+
+     if (!check_sort(deq_a))
+         last_setting_deque(deq_a);
+    
+
+
+    deq_print(deq_a);
+    deq_print(deq_b);
+
+    ft_free_deq_a(deq_a);
+    ft_free_deq_b(deq_b);
+    return (0);
+
     // // deq_a의 크기 구하기 <- 정렬 전.
     // deq_a->a_size = ft_deq_size(deq_a);
 	
@@ -78,155 +100,167 @@ int main(int ac, char **av)
     // // deq을 free해주는 함수 - 동적메모리할당 했기 때문에 <- 논리적 이유.
     // free_deq(deq_a);
     // free_deq(deq_b);
-
-	deq_print(deq_a);
-
-    return (0);
 }
 
 
-int main()
-{
-    t_deq deq_a;
-    t_deq deq_b;
-    t_node* node;
 
 
 
-    init_deq(&deq_a);
-    init_deq(&deq_b);
 
-    node = init_node(2);
-    push_bot_a(&deq_a, node);
 
-    node = init_node(30);
-    push_bot_a(&deq_a, node);
 
-    node = init_node(50000);
-    push_bot_a(&deq_a, node);
 
-    node = init_node(-42304);
-    push_bot_a(&deq_a, node);
+
+
+
+
+
+
+
+
+
+// int main()
+// {
+//     t_deq deq_a;
+//     t_deq deq_b;
+//     t_node* node;
+
+
+
+//     init_deq(&deq_a);
+//     init_deq(&deq_b);
+
+//     node = init_node(2);
+//     push_bot_a(&deq_a, node);
+
+//     node = init_node(30);
+//     push_bot_a(&deq_a, node);
+
+//     node = init_node(50000);
+//     push_bot_a(&deq_a, node);
+
+//     node = init_node(-42304);
+//     push_bot_a(&deq_a, node);
     
 
-    node = init_node(-710);
-    push_bot_a(&deq_a, node);
+//     node = init_node(-710);
+//     push_bot_a(&deq_a, node);
 
-    node = init_node(-320);
-    push_bot_a(&deq_a, node);
+//     node = init_node(-320);
+//     push_bot_a(&deq_a, node);
 
-    node = init_node(11);
-    push_bot_a(&deq_a, node);
+//     node = init_node(11);
+//     push_bot_a(&deq_a, node);
 
-    node = init_node(-31);
-    push_bot_a(&deq_a, node);
+//     node = init_node(-31);
+//     push_bot_a(&deq_a, node);
 
-    // 이 경우 뭐지? -- 에러, 에러를 잘, 잘 찾을 것
-    node = init_node(41);
-    push_bot_a(&deq_a, node);
+//     // 이 경우 뭐지? -- 에러, 에러를 잘, 잘 찾을 것
+//     node = init_node(41);
+//     push_bot_a(&deq_a, node);
 
-    node = init_node(-1);
-    push_bot_a(&deq_a, node);
+//     node = init_node(-1);
+//     push_bot_a(&deq_a, node);
 
-    node = init_node(-13);
-    push_bot_a(&deq_a, node);
+//     node = init_node(-13);
+//     push_bot_a(&deq_a, node);
 
-    node = init_node(-2);
-    push_bot_a(&deq_a, node);
+//     node = init_node(-2);
+//     push_bot_a(&deq_a, node);
 
-/*
-a_top data : 4
-a_top data : 1
-a_top data : 9
-a_top data : 7
-a_top data : 2
-a_top data : 5
-a_top data : 3
-a_top data : 6
-a_top data : 8
-a_top data : 0
+// /*
+// a_top data : 4
+// a_top data : 1
+// a_top data : 9
+// a_top data : 7
+// a_top data : 2
+// a_top data : 5
+// a_top data : 3
+// a_top data : 6
+// a_top data : 8
+// a_top data : 0
 
 
-a_top data : 0
-a_top data : 3
-a_top data : 5
-a_top data : 6
-a_top data : 8
+// a_top data : 0
+// a_top data : 3
+// a_top data : 5
+// a_top data : 6
+// a_top data : 8
 
-b_top data : 7
-b_top data : 9
-b_top data : 4
-b_top data : 1
-b_top data : 2
+// b_top data : 7
+// b_top data : 9
+// b_top data : 4
+// b_top data : 1
+// b_top data : 2
 
-*/
+// */
 
-    deq_a.a_size = get_deq_a_size(&deq_a);
-    deq_b.b_size = get_deq_b_size(&deq_b);
+//     deq_a.a_size = get_deq_a_size(&deq_a);
+//     deq_b.b_size = get_deq_b_size(&deq_b);
 
-    deq_a.arr =(int *)malloc(sizeof(int) * deq_a.a_size);
+//     deq_a.arr =(int *)malloc(sizeof(int) * deq_a.a_size);
 
-    int i = 0;
+//     int i = 0;
    
-    t_node *temp = deq_a.a_top;
+//     t_node *temp = deq_a.a_top;
     
-    while (temp)
-    {
-        deq_a.arr[i++] = temp->content;
-        temp = temp->next;
-    }
+//     while (temp)
+//     {
+//         deq_a.arr[i++] = temp->content;
+//         temp = temp->next;
+//     }
 
-    content_trans_idx(&deq_a);
+//     content_trans_idx(&deq_a);
 
-/*
-a_top data : 8
-a_top data : 9
-a_top data : 11
-a_top data : 0
-a_top data : 10
-a_top data : 1
-a_top data : 5
-a_top data : 3
-a_top data : 2
-a_top data : 7
-a_top data : 4
-a_top data : 6
-*/
+// /*
+// a_top data : 8
+// a_top data : 9
+// a_top data : 11
+// a_top data : 0
+// a_top data : 10
+// a_top data : 1
+// a_top data : 5
+// a_top data : 3
+// a_top data : 2
+// a_top data : 7
+// a_top data : 4
+// a_top data : 6
+// */
 
-/*b_top data : 10
-b_top data : 11
-b_top data : 9
-b_top data : 8
-b_top data : 0
-b_top data : 1
-b_top data : 5
-*/
-/*
-a_top data : 3
-a_top data : 4
-a_top data : 5
-a_top data : 6
-a_top data : 10
-(lldb) p deq_print(deq_b)
-b_top data : 8
-b_top data : 11
-b_top data : 9
-b_top data : 7
-b_top data : 0
-b_top data : 1
-b_top data : 2
-*/
-
-
+// /*b_top data : 10
+// b_top data : 11
+// b_top data : 9
+// b_top data : 8
+// b_top data : 0
+// b_top data : 1
+// b_top data : 5
+// */
+// /*
+// a_top data : 3
+// a_top data : 4
+// a_top data : 5
+// a_top data : 6
+// a_top data : 10
+// (lldb) p deq_print(deq_b)
+// b_top data : 8
+// b_top data : 11
+// b_top data : 9
+// b_top data : 7
+// b_top data : 0
+// b_top data : 1
+// b_top data : 2
+// */
 
 
-    sort(&deq_a, &deq_b);
 
 
-     if (!check_sort(&deq_a))
-         last_setting_deque(&deq_a);
+//     sort(&deq_a, &deq_b);
+
+
+//      if (!check_sort(&deq_a))
+//          last_setting_deque(&deq_a);
     
-    deq_print(&deq_a);
-    deq_print(&deq_b);
-    return (0);
-}
+//     deq_print(&deq_a);
+//     deq_print(&deq_b);
+//     return (0);
+// }
