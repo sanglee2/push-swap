@@ -6,7 +6,7 @@
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:18:25 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/23 22:11:06 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/23 22:25:50 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,18 @@ int main(int ac, char **av)
 	}
 
     deq_a->a_size = get_deq_a_size(deq_a);
-    deq_b->b_size = get_deq_b_size(deq_b);
+
+    deq_a->arr =(int *)malloc(sizeof(int) * deq_a->a_size);
+
+    int i = 0;
+   
+    t_node *temp = deq_a->a_top;
+    
+    while (temp)
+    {
+        deq_a->arr[i++] = temp->content;
+        temp = temp->next;
+    }
 
     content_trans_idx(deq_a);
 

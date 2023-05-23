@@ -6,36 +6,36 @@
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 16:31:16 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/23 21:48:31 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/23 22:15:17 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stddef.h>
 
-void push_bot_a(t_deq *deq_a, t_node *node)
-{
-	// deq a가 비어있을 때.
-	// top 과 bot 모두가 현재 노드를 가리킬 수 있도록.
-	if (deq_a->a_size == 0)
-	{
-		deq_a->a_top = node;
-		deq_a->a_bot = node;
-	}
-	else if (deq_a->a_size == 1)
-	{
-		deq_a->a_top->next = node;
-		deq_a->a_bot = node;
-		deq_a->a_bot->prev = deq_a->a_top;
-	}
-	else
-	{
-		deq_a->a_bot->next = node;
-		node->prev = deq_a->a_bot;
-		deq_a->a_bot = node;
-	}
-	deq_a->a_size++;
-}
+// void push_bot_a(t_deq *deq_a, t_node *node)
+// {
+// 	// deq a가 비어있을 때.
+// 	// top 과 bot 모두가 현재 노드를 가리킬 수 있도록.
+// 	if (deq_a->a_size == 0)
+// 	{
+// 		deq_a->a_top = node;
+// 		deq_a->a_bot = node;
+// 	}
+// 	else if (deq_a->a_size == 1)
+// 	{
+// 		deq_a->a_top->next = node;
+// 		deq_a->a_bot = node;
+// 		deq_a->a_bot->prev = deq_a->a_top;
+// 	}
+// 	else
+// 	{
+// 		deq_a->a_bot->next = node;
+// 		node->prev = deq_a->a_bot;
+// 		deq_a->a_bot = node;
+// 	}
+// 	deq_a->a_size++;
+// }
 
 static size_t	ft_strlen(const char *s)
 {
@@ -125,38 +125,38 @@ char	**ft_split(char const *s, char c)
 	return (result);
 }
 
-t_deq* create()
-{
-	t_deq *deq;
-	deq = (t_deq *)malloc(sizeof(t_deq) * 1);
+// t_deq* create()
+// {
+// 	t_deq *deq;
+// 	deq = (t_deq *)malloc(sizeof(t_deq) * 1);
 
-	return(deq);
-}
+// 	return(deq);
+// }
 
-void init_deq(t_deq *deq)
-{
-	deq->a_top = 0;
-	deq->a_bot = 0;
-	deq->a_size = 0;
-	deq->b_top = 0;
-	deq->b_bot = 0;
-	deq->b_size = 0;
-	deq->arr = 0;
-}
+// void init_deq(t_deq *deq)
+// {
+// 	deq->a_top = 0;
+// 	deq->a_bot = 0;
+// 	deq->a_size = 0;
+// 	deq->b_top = 0;
+// 	deq->b_bot = 0;
+// 	deq->b_size = 0;
+// 	deq->arr = 0;
+// }
 
-t_node* init_node(int arg)
-{
-	t_node *node;
-	node = (t_node *)malloc(sizeof(t_node) * 1);
-	if (!node)
-		return(0);
+// t_node* init_node(int arg)
+// {
+// 	t_node *node;
+// 	node = (t_node *)malloc(sizeof(t_node) * 1);
+// 	if (!node)
+// 		return(0);
 	
-	node->prev = NULL;
-	node->content = arg;
-	node->index = 0;
-	node->next = NULL;
-	return (node);	
-}
+// 	node->prev = NULL;
+// 	node->content = arg;
+// 	node->index = 0;
+// 	node->next = NULL;
+// 	return (node);	
+// }
 
 t_deq *malloc_deq(void)
 {
@@ -207,25 +207,25 @@ t_deq *parse(int ac, char **av, int i) //i = 1, ac 개수 체크)
 	return(deq_a);
 }
 
-int check_duplicate_arg(t_deq *deq)
-{
-	t_node* temp1;
-	t_node* temp2;
-	temp1 = deq->a_top;
+// int check_duplicate_arg(t_deq *deq)
+// {
+// 	t_node* temp1;
+// 	t_node* temp2;
+// 	temp1 = deq->a_top;
 
-	while(temp1)
-	{
-		temp2 = temp1->next;
-		while(temp2)
-		{
-			if (temp2->content == temp1->content)
-				return(1);
-			temp2 = temp2->next;
-		}
-		temp1 = temp1->next;
-	}
-	return (0);
-}
+// 	while(temp1)
+// 	{
+// 		temp2 = temp1->next;
+// 		while(temp2)
+// 		{
+// 			if (temp2->content == temp1->content)
+// 				return(1);
+// 			temp2 = temp2->next;
+// 		}
+// 		temp1 = temp1->next;
+// 	}
+// 	return (0);
+// }
 
 // int main(int ac, char *av[])
 // {

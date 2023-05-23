@@ -6,7 +6,7 @@
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:40:43 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/20 07:31:17 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/23 22:12:35 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,16 @@ typedef struct s_deq
 // 	t_node *bot;
 // } t_deq;
 
+char** ft_split(char const *s, char c);
+t_deq* malloc_deq(void);
+t_deq* parse(int ac, char **av, int i);
+int check_duplicate_arg(t_deq *deq);
+int ft_isdigit(int c);
+int ft_atoi(char *nptr);
+void ft_free(char **arr);
+void ft_free_deq_a(t_deq* deq_a);
+void ft_free_deq_b(t_deq* deq_b);
+void ft_error(void);
 int ft_abs(int num);
 int check_sort(t_deq *deq);
 int get_a_loc(t_deq* deq_a, int b_content);
