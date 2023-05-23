@@ -1,9 +1,9 @@
 NAME = push_swap.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = 
-SRCS_BONUS = 
-INC = 
+SRCS = //작성 필요한 부분.
+SRCS_BONUS = //작성 필요한 부분.
+INC = ./push_swap.h
 OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 AR = ar
