@@ -6,16 +6,28 @@
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 14:40:43 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/23 22:12:35 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/25 21:23:27 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
 
 #include <unistd.h>
 #include <stdlib.h>
+
+typedef struct s_get_next_line
+{
+	int						fd;
+	char					*storage;
+	struct s_get_next_line	*prev;
+	struct s_get_next_line	*next;
+}	t_list;
 
 typedef struct s_node
 {
@@ -43,8 +55,17 @@ typedef struct s_deq
 // 	t_node *bot;
 // } t_deq;
 
+
+
+char	*get_next_line(int fd);
+t_list	*ft_lstnew(int fd);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strjoin(char const *s1, char const *s2);
+void	ft_free1(char **ret, t_list **lst_fd, ssize_t output, t_list **lst);
+void	all_free(t_list **lst, char **ret);
 char** ft_split(char const *s, char c);
-t_deq* malloc_deq(void);
+t_deq* malloc_deq_a(void);
+t_deq* malloc_deq_b(void);
 t_deq* parse(int ac, char **av, int i);
 int check_duplicate_arg(t_deq *deq);
 int ft_isdigit(int c);

@@ -6,7 +6,7 @@
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 16:31:16 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/23 22:15:17 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/25 15:04:02 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,7 @@ char	**ft_split(char const *s, char c)
 // 	return (node);	
 // }
 
-t_deq *malloc_deq(void)
+t_deq *malloc_deq_a(void)
 {
 	t_deq* deq_a;
 
@@ -166,6 +166,16 @@ t_deq *malloc_deq(void)
 	init_deq(deq_a);
 
 	return(deq_a);
+}
+
+t_deq *malloc_deq_b(void)
+{
+	t_deq* deq_b;
+
+	deq_b = create();
+	init_deq(deq_b);
+
+	return(deq_b);
 }
 
 
@@ -182,7 +192,7 @@ t_deq *parse(int ac, char **av, int i) //i = 1, ac 개수 체크)
 
 	//i = 1;
 
-	deq_a = malloc_deq();
+	deq_a = malloc_deq_a();
 
 	while(i < ac)
 	{

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main.d                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:18:25 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/23 22:25:50 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/25 21:16:00 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,14 @@ int main(int ac, char **av)
     t_deq* deq_a;
     t_deq* deq_b;
 
-    // argument 유효성 체크 부분
+    // argument 유효성 체크 부분'
+    if (ac == 1)
+        return (0);
     if (ac < 2)
         ft_error();
 	deq_a = parse(ac,av,1);	
-    deq_b = NULL;
+    deq_b = malloc_deq_b();
+    // deq_b = NULL;
 
 	if(check_duplicate_arg(deq_a) == 1)
 	{
@@ -93,8 +96,10 @@ int main(int ac, char **av)
     
 
 
-    deq_print(deq_a);
-    deq_print(deq_b);
+    //deq_print(deq_a);
+
+
+    //deq_print(deq_b);
 
     ft_free_deq_a(deq_a);
     ft_free_deq_b(deq_b);
