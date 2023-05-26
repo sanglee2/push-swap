@@ -6,7 +6,7 @@
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 08:18:15 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/25 15:02:18 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:26:23 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ t_deq* create()
 {
 	t_deq *deq;
 	deq = (t_deq *)malloc(sizeof(t_deq) * 1);
+	if(!deq)
+		return(0);
 
 	return(deq);
 }

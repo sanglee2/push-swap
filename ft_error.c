@@ -6,7 +6,7 @@
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 03:36:04 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/23 21:47:20 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/26 21:31:32 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,11 @@ void ft_free_deq_a(t_deq* deq_a)
 
 	while(deq_a->a_top)
 	{
-		temp = deq_a->a_top->next;
-		free(deq_a->a_top);
-		deq_a->a_top = temp;
+		temp = deq_a->a_top;
+		deq_a->a_top = deq_a->a_top->next;
+		free(temp);
 	}
+	free(deq_a);
 	//deq_a->a_top->next = NULL;
 }
 
@@ -46,10 +47,11 @@ void ft_free_deq_b(t_deq* deq_b)
 
 	while(deq_b->b_top)
 	{
-		temp = deq_b->b_top->next;
-		free(deq_b->b_top);
-		deq_b->b_top = temp;
+		temp = deq_b->b_top;
+		deq_b->b_top = deq_b->b_top->next;
+		free(temp);
 	}
+	free(deq_b);
 	//deq_b->b_top->next = NULL;
 }
 

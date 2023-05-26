@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.d                                             :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:18:25 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/25 21:16:00 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:42:53 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,15 @@
 
 //     return (0);
 // }
+void check_leak(void)
+{
+    system("leaks a.out");
+}
 
 
 int main(int ac, char **av)
 {
+    atexit(check_leak);
 	// deq 구조체를 담는 변수 a, b 인스턴스화
     // 어떤 자료구조 유리한지 - 선택이유
     t_deq* deq_a;
@@ -68,6 +73,7 @@ int main(int ac, char **av)
 	if(check_duplicate_arg(deq_a) == 1)
 	{
 		ft_free_deq_a(deq_a);
+        ft_free_deq_b(deq_b);
 		ft_error();
 	}
 
@@ -84,6 +90,7 @@ int main(int ac, char **av)
         deq_a->arr[i++] = temp->content;
         temp = temp->next;
     }
+    
 
     content_trans_idx(deq_a);
 
@@ -96,13 +103,15 @@ int main(int ac, char **av)
     
 
 
-    //deq_print(deq_a);
+    // deq_print(deq_a);
 
 
-    //deq_print(deq_b);
+    // deq_print(deq_b);
 
     ft_free_deq_a(deq_a);
-    ft_free_deq_b(deq_b);
+    ft_free_deq_b(deq_b);   
+
+    //system("leaks a.out");
     return (0);
 
     // // deq_a의 크기 구하기 <- 정렬 전.

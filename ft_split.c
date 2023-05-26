@@ -6,7 +6,7 @@
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 16:31:16 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/25 15:04:02 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:32:49 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,6 +208,7 @@ t_deq *parse(int ac, char **av, int i) //i = 1, ac 개수 체크)
 			push_bot_a(deq_a, node);	
 			temp++;
 		}
+		//ft_free(temp);
 		ft_free(arr);
 		i++;
 	}

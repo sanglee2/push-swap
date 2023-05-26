@@ -6,7 +6,7 @@
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 19:47:39 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/25 21:22:03 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/26 21:27:46 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,3 +123,42 @@ char	*get_next_line(int fd)
 	}
 	return (ret);
 }
+
+
+// void check_leak(void)
+// {
+//     system("leaks a.out");
+// }
+
+
+// int main(int ac, char **av)
+// {
+
+// 	atexit(check_leak);
+// 	char* temp;
+
+// 	while(1)
+// 	{
+// 		temp = get_next_line(0);
+// 		if (temp == NULL)
+// 			break;
+// 		act_command(deq_a, deq_b, temp);
+// 	}
+
+
+// 	ge
+
+
+
+
+
+
+
+// 	ft_free_deq_a(deq_a);
+//     ft_free_deq_b(deq_b);   
+
+//     //system("leaks a.out");
+//     return (0);
+
+
+// }

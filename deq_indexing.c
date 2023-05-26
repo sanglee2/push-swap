@@ -6,7 +6,7 @@
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 02:52:43 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/20 04:19:32 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:03:00 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void content_trans_idx(t_deq *deq)
 		idx_arr[max_idx] = i;
 		i--;
 	}
+	free(deq->arr);
 
 	i = 0;
 	while(temp)
@@ -72,6 +73,7 @@ void content_trans_idx(t_deq *deq)
 		temp->index = idx_arr[i++];
 		temp = temp->next;
 	}
+	free(idx_arr);
 
 
 
