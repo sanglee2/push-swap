@@ -6,7 +6,7 @@
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 18:48:05 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/26 21:45:17 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/27 08:59:15 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void ft_checker(t_deq* deq_a, t_deq* deq_b)
 		act_command(deq_a, deq_b, temp);
 		free(temp);
 	}
-	free(temp);
 	if(deq_b->b_size != 0||!check_sort(deq_a))
 		write(1, "ko\n", 3);
 	else
@@ -75,17 +74,17 @@ void ft_checker(t_deq* deq_a, t_deq* deq_b)
 }
 
 
-// void check_leak(void)
-// {
-//     system("leaks a.out");
-// }
+void check_leak(void)
+{
+    system("leaks a.out");
+}
 
 int main(int ac, char **av)
 {
 	// deq 구조체를 담는 변수 a, b 인스턴스화
     // 어떤 자료구조 유리한지 - 선택이유
 
-	//atexit(check_leak);
+	atexit(check_leak);
     t_deq* deq_a;
     t_deq* deq_b;
 

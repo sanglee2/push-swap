@@ -1,22 +1,21 @@
-NAME = push_swap.a
+NAME = push_swap
+BONUS_NAME = checker //보너스 헤더 따로 만들기
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = //작성 필요한 부분.
-SRCS_BONUS = //작성 필요한 부분.
+SRCS_BONUS = //작성 필요한 부분. /libft/get_next_line.c /libft/get_next_line_utils.c
 INC = ./push_swap.h
 OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
-AR = ar
-ARFLAGS = -rcs
 RM = rm
 RMFLAGS = -f
 
 ifdef BONUS
-$(NAME): $(OBJS) $(OBJS_BONUS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS) $(OBJS_BONUS)
+$(NAME): $(OBJS_BONUS)
+	 $(CC) $(CFLAGS) -o $@ $^
 else
 $(NAME): $(OBJS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $^
 endif
 
 all: $(NAME)
@@ -36,6 +35,6 @@ re:
 	make all
 
 %.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $@ -I $(INC)
+	$(CC) $(CFLAGS) -c $< -o $@ 
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
