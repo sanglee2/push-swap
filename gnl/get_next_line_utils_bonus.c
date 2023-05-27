@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 15:43:41 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/25 21:24:23 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/27 23:09:54 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
-#include "push_swap.h"
+//#include "push_swap.h"
 
 t_list	*ft_lstnew(int fd)
 {
@@ -21,6 +21,8 @@ t_list	*ft_lstnew(int fd)
 	node = (t_list *)malloc(1 * sizeof(t_list));
 	if (!node)
 		return (0);
+
+	//malloc과 동시에 초기화 해주는 코드 동시에 작성.	
 	node->fd = fd;
 	node->storage = NULL;
 	node->prev = NULL;

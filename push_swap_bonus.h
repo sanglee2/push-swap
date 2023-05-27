@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 14:40:43 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/27 22:59:17 by sanglee2         ###   ########.fr       */
+/*   Created: 2023/05/27 22:48:58 by sanglee2          #+#    #+#             */
+/*   Updated: 2023/05/28 00:12:09 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
 // # ifndef BUFFER_SIZE
 // #  define BUFFER_SIZE 42
@@ -20,14 +20,8 @@
 
 #include <unistd.h>
 #include <stdlib.h>
-// #include "gnl/get_next_line.h"
-// typedef struct s_get_next_line
-// {
-// 	int						fd;
-// 	char					*storage;
-// 	struct s_get_next_line	*prev;
-// 	struct s_get_next_line	*next;
-// }	t_list;
+#include "gnl/get_next_line_bonus.h"
+
 
 typedef struct s_node
 {
@@ -57,12 +51,14 @@ typedef struct s_deq
 
 
 
-// char	*get_next_line(int fd);
+//char	*get_next_line(int fd);
 // t_list	*ft_lstnew(int fd);
 // char	*ft_strchr(const char *s, int c);
 // char	*ft_strjoin(char const *s1, char const *s2);
 // void	ft_free1(char **ret, t_list **lst_fd, ssize_t output, t_list **lst);
 // void	all_free(t_list **lst, char **ret);
+//void act_command(t_deq* deq_a, t_deq* deq_b, char *str);
+//void ft_checker(t_deq* deq_a, t_deq* deq_b);
 char** ft_split(char const *s, char c);
 t_deq* malloc_deq_a(void);
 t_deq* malloc_deq_b(void);
@@ -124,4 +120,3 @@ void iterate_rb(t_deq* deq_b, int b_loc);
 void iterate_rrb(t_deq* deq_b, int b_loc);
 
 #endif
-

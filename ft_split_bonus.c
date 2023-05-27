@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 16:31:16 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/27 22:46:25 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/27 23:02:41 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 #include <stddef.h> // TODO: refactor//
 // void push_bot_a(t_deq *deq_a, t_node *node)
 // {

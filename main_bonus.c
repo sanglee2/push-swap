@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_main.c                                       :+:      :+:    :+:   */
+/*   main_bonus.d                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 18:48:05 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/27 08:59:15 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/28 06:41:17 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 static int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -50,7 +50,7 @@ void act_command(t_deq* deq_a, t_deq* deq_b, char *str)
 		rrr(deq_a, deq_b);
 	else
 	{
-		write(1, "ko\n", 3);
+		write(1, "KO\n", 3);
 		exit(1);
 	}
 }
@@ -68,31 +68,31 @@ void ft_checker(t_deq* deq_a, t_deq* deq_b)
 		free(temp);
 	}
 	if(deq_b->b_size != 0||!check_sort(deq_a))
-		write(1, "ko\n", 3);
+		write(1, "KO\n", 3);
 	else
-		write(1, "ok\n", 3);
+		write(1, "OK\n", 3);
 }
 
 
-void check_leak(void)
-{
-    system("leaks a.out");
-}
+// void check_leak(void)
+// {
+//     system("leaks a.out");
+// }
 
 int main(int ac, char **av)
 {
 	// deq 구조체를 담는 변수 a, b 인스턴스화
     // 어떤 자료구조 유리한지 - 선택이유
 
-	atexit(check_leak);
+	//atexit(check_leak);
     t_deq* deq_a;
     t_deq* deq_b;
 
     // argument 유효성 체크 부분'
-    if (ac == 1)
+	 if (ac < 2)
         return (0);
-    if (ac < 2)
-        ft_error();
+    if (!*av[1])
+        return (0);
 	deq_a = parse(ac,av,1);	
     deq_b = malloc_deq_b();
     // deq_b = NULL;
@@ -124,6 +124,6 @@ int main(int ac, char **av)
 	ft_free_deq_a(deq_a);
     ft_free_deq_b(deq_b);   
 
-    system("leaks a.out");
+    //system("leaks a.out");
     return (0);
 }

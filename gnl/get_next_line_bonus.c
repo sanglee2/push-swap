@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sanglee2 <sanglee2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 19:47:39 by sanglee2          #+#    #+#             */
-/*   Updated: 2023/05/26 21:27:46 by sanglee2         ###   ########.fr       */
+/*   Updated: 2023/05/27 23:09:56 by sanglee2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "get_next_line.h"
-#include "push_swap.h"
+#include "get_next_line_bonus.h"
+//#include "push_swap.h"
 
 t_list	*check_lst_storage(t_list *lst, char **ret, int fd)
 {
@@ -27,6 +27,7 @@ t_list	*check_lst_storage(t_list *lst, char **ret, int fd)
 		}
 		lst = lst->next;
 	}
+	// 저장되어있는 것도 update해주기. - lst의 storage에 있었던.
 	if (lst->storage != NULL)
 	{
 		*ret = lst->storage;
@@ -38,10 +39,13 @@ t_list	*check_lst_storage(t_list *lst, char **ret, int fd)
 int	check_ret(char **ret, t_list **lst, t_list **lst_fd, char **temp)
 {
 	*temp = ft_strchr(*ret, '\n');
+	// 개행이 있으면,(개행까지 읽어오는 게 보통이니까)
 	if (*temp)
 	{
+		// 개행 다음에 문자가 있는지, 없는지 체크
 		if (*(++(*temp)))
 		{
+			// lst_fd->storage에 계속 붙여주는 작업.
 			(*lst_fd)->storage = ft_strjoin((*lst_fd)->storage, *temp);
 			if (!((*lst_fd)-> storage))
 			{
@@ -49,6 +53,7 @@ int	check_ret(char **ret, t_list **lst, t_list **lst_fd, char **temp)
 				return (0);
 			}
 			**temp = '\0';
+			// ret을 새로이 update 맨 뒤에 NULL을 붙여서
 			*temp = ft_strjoin(*ret, NULL);
 			if (!(*temp))
 			{
@@ -60,6 +65,7 @@ int	check_ret(char **ret, t_list **lst, t_list **lst_fd, char **temp)
 		}
 		return (0);
 	}
+	// 개행이 없거나, 개행이 있었어도 그 다음 값이 없는 경우.
 	return (1);
 }
 
@@ -97,7 +103,10 @@ int	get_char(char **ret, t_list **lst_fd, int fd, t_list **lst)
 
 char	*get_next_line(int fd)
 {
+	// char* 에 하나하나씩 담는 역할.
 	char			*ret;
+	// static 정적변수의 역할
+	// 문자열을 합치면서 저장할 포인터
 	static t_list	*lst;
 	t_list			*lst_fd;
 	char			*temp;
@@ -110,12 +119,15 @@ char	*get_next_line(int fd)
 		if (!lst)
 			return (NULL);
 	}
+	// fd에 맞는 lst찾는 작업.
 	lst_fd = check_lst_storage(lst, &ret, fd);
 	if (!(lst_fd))
 	{
+		// 있던 lst와 ret 전부 해제?
 		all_free(&lst, &ret);
 		return (NULL);
 	}
+	// temp들이 해주는 역할?, 역할?!
 	while (check_ret(&ret, &lst, &lst_fd, &temp))
 	{
 		if (get_char(&ret, &lst_fd, fd, &lst))
@@ -124,41 +136,33 @@ char	*get_next_line(int fd)
 	return (ret);
 }
 
-
-// void check_leak(void)
+// int main(void)
 // {
-//     system("leaks a.out");
-// }
+// 	char buf[BUFFER_SIZE + 1];
+// 	char *save;
+// 	int fd;
+// 	int read_size;
 
 
-// int main(int ac, char **av)
-// {
+// 	read_size = 0;
+// 	fd = open("./test.txt", O_RDONLY);
 
-// 	atexit(check_leak);
-// 	char* temp;
-
-// 	while(1)
+// 	if (fd == -1)
+// 		printf("error\n");
+// 	else
 // 	{
-// 		temp = get_next_line(0);
-// 		if (temp == NULL)
-// 			break;
-// 		act_command(deq_a, deq_b, temp);
+// 		read_size = read(fd, buf, BUFFER_SIZE);
+// 		while(read_size > 0)
+// 		{
+// 			buf[read_size] = '\0';
+// 			if(save == NULL)
+// 				save = strdup(buf);
+// 			else
+// 				strcat(save, buf);
+// 			read_size = read(fd, buf, BUFFER_SIZE);	
+// 		}
+// 		printf("%s", save);
+// 		close(fd);
 // 	}
-
-
-// 	ge
-
-
-
-
-
-
-
-// 	ft_free_deq_a(deq_a);
-//     ft_free_deq_b(deq_b);   
-
-//     //system("leaks a.out");
-//     return (0);
-
-
+// 	return (0);
 // }
